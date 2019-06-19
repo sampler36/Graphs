@@ -28,21 +28,58 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        if cb is None:
+            def cb(x): return print(x, end=' ')
+        visited = set()
+        q = Queue()
+        q.enqueue(starting_vertex)
+        while q.size() > 0:
+            v = q.dequeue()
+            if v not in visited:
+                visited.add(v)
+                cb(v)
+                for neighbor in self.vertices[v]:
+                    q.enqueue(neighbor)
+        print('bft')
     def dft_recursive(self, starting_vertex):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         This should be done using recursion.
         """
-        pass  # TODO
+        visited = set()
+        s = Stack()
+        s.push(starting_vertex)
+        while s.size() > 0:
+            v = s.pop()
+            if v not in visited:
+                visited.add(v)
+                print(v, end=' ')
+                for neighbor in self.vertices[v]:
+                    s.push(neighbor)
+        print('dft')
+
     def bfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing the shortest path from
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        pass  # TODO
+        visited = set()
+        q = Queue()
+        q.enqueue([starting_vertex])
+        while q.size() > 0:
+            path = q.dequeue()
+            v = path[-1]
+            if v == destination_vertex:
+                return path
+            if v not in visited:
+                visited.add(v)
+                for neighbor in self.vertices[v]:
+                    path_copy = [*path, neighbor]
+                    q.enqueue(path_copy)
+
+        raise IndexError(f"bfs {starting_vertex} doesn't connect to {destination_vertex}")                    
     def dfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
