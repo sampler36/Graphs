@@ -35,18 +35,21 @@ class Queue:
         return len(self.queue)
 
 # Fill this out
-traversalPath = ['n', 's']
+    traversalPath = ['n', 's']
 
 # some sort of function to backtrack to the unexplored areas Think BFT
     def backtrack_to_unexlored(player, movesQueue):
+         pass
         # Create Visited or add in def line ˆˆˆ
         # Add path of each room to the queue
         # check if empty or not then deque
         # go to the last room
         # start path from the last going up
+       
 
 # some sort of function to enqueue moves
     def enqueue(player, movesQueue):
+        pass
       
 
 
