@@ -50,7 +50,11 @@ traversalPath = ['n', 's']
 
 
 #  possibly setup a dictionary of inverse directions
-
+# inverse directions
+# if the player looking north
+# return south
+# and the inverse of all directions
+# basically N - S then S -> N and W -> E and E -> W 
 
 
 # TRAVERSAL TEST
