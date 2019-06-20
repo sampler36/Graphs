@@ -39,14 +39,19 @@ traversalPath = ['n', 's']
 
 # some sort of function to backtrack to the unexplored areas Think BFT
     def backtrack_to_unexlored(player, movesQueue):
-        pass
+        
 
 # some sort of function to enqueue moves
     def enqueue(player, movesQueue):
-        pass
+        # Create Visited or add in def line ˆˆˆ
+        # Add path of each room to the queue
+        # check if empty or not then deque
+        # 
 
 
 #  possibly setup a dictionary of inverse directions
+
+
 
 # TRAVERSAL TEST
 visited_rooms = set()
