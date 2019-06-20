@@ -33,10 +33,20 @@ class Queue:
             return None
     def size(self):
         return len(self.queue)
+
 # Fill this out
-traversalPath = []
+traversalPath = ['n', 's']
+
+# some sort of function to backtrack to the unexplored areas Think BFT
+    def backtrack_to_unexlored(player, movesQueue):
+        pass
+
+# some sort of function to enqueue moves
+    def enqueue(player, movesQueue):
+        pass
 
 
+#  possibly setup a dictionary of inverse directions
 
 # TRAVERSAL TEST
 visited_rooms = set()
