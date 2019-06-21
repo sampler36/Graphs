@@ -61,7 +61,17 @@ class Queue:
 # in neighbours we might initialize the directions / location / visited aswell
 # player needs to travel
 
-
+#    Implementing the  BFS
+    def  backtrack(starting_vertex_id):
+        q = Queue()
+        q.enqueue([starting_vertex_id])
+        visited = set()
+        # if room is empty
+        while q.size() > 0:
+            path = d.dequeue()
+            # look at the last entry
+            v = path[-1]
+            if v not 
 
 # TRAVERSAL TEST
 visited_rooms = set()
