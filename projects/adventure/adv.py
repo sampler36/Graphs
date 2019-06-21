@@ -22,9 +22,9 @@ world.printRooms()
 player = Player("Name", world.startingRoom)
 
 # Fill this out
-    traversalPath = []
-    graph = {0: {"n": "?", "e": "?", "s": "?", "w": "?"}}
-    inverse_directions = {'n': 's', 's': 'n', 'e': 'w', 'w': 'e'}
+traversalPath = []
+graph = {0: {"n": "?", "e": "?", "s": "?", "w": "?"}}
+inverse_directions = {'n': 's', 's': 'n', 'e': 'w', 'w': 'e'}
 
 class Queue:
     def __init__(self):
@@ -71,7 +71,20 @@ class Queue:
             path = d.dequeue()
             # look at the last entry
             v = path[-1]
-            if v not 
+            if v not in visited:
+                # exit
+                for exit in graph[v]:
+                    if graph[v][exit] == '?':   # check for (?) in the graph at the top
+                        # return the unvisted room/path
+                        return path
+                # else add it to que
+                visited.add(v)
+                # init the key
+                for door in graph[v]: 
+                    new_path = list(path)
+                    new_path.append(graph[v][door]) # appends room number
+                    q.enqueue(new_path)
+        return None
 
 # TRAVERSAL TEST
 visited_rooms = set()
