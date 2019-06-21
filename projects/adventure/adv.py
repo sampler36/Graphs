@@ -21,6 +21,9 @@ world.printRooms()
 
 player = Player("Name", world.startingRoom)
 
+# Fill this out
+    traversalPath = ['n', 's']
+
 class Queue:
     def __init__(self):
         self.queue = []
@@ -34,31 +37,28 @@ class Queue:
     def size(self):
         return len(self.queue)
 
-# Fill this out
-    traversalPath = ['n', 's']
-
-# some sort of function to backtrack to the unexplored areas Think BFT
-    def backtrack_to_unexlored(player, movesQueue):
-         pass
-        # Create Visited or add in def line ˆˆˆ
-        # Add path of each room to the queue
-        # check if empty or not then deque
-        # go to the last room
-        # start path from the last going up
-       
-
-# some sort of function to enqueue moves
-    def enqueue(player, movesQueue):
-        pass
-      
+    
+#   This is what i think i need to do
+    # Initialize being in a room or of a room exist
+    # if it exist then add one else move to the next room given directions (N W E S)
+    # check if the nearest room is closer or can be reachable
+    # if reachable with create a path
+    # Check if exit "n" is unexplored; if it is, we travel north, and add it to traversalPath
+    # when you move to the next room using directions given mark that room visited
+    # Since we want to backtrack add a tranverse path to go back and forth if needed
+    # then loop through every room till you get to the last one ,
+    # there by counting the visited rooms as well
+    # return how many move to get to the last room
 
 
-#  possibly setup a dictionary of inverse directions
-# inverse directions
-# if the player looking north
-# return south
-# and the inverse of all directions
-# basically N - S then S -> N and W -> E and E -> W 
+# following Toms Lectures i am going to do the following
+# since we moving into differrent rooms we gonna need to use the BFS
+# we need to find or create a path / directions or edge
+# gonna need to populate and update the graph
+# might need a neighbour function 
+# in neighbours we might initialize the directions / location / visited aswell
+# player needs to travel
+
 
 
 # TRAVERSAL TEST
