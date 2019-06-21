@@ -26,7 +26,7 @@ traversalPath = []
 graph = {0: {"n": "?", "e": "?", "s": "?", "w": "?"}}
 inverse_directions = {'n': 's', 's': 'n', 'e': 'w', 'w': 'e'}
 
-class Queue:
+class Queue():
     def __init__(self):
         self.queue = []
     def enqueue(self, value):
@@ -51,6 +51,13 @@ class Queue:
     # then loop through every room till you get to the last one ,
     # there by counting the visited rooms as well
     # return how many move to get to the last room
+    # in simple terms:
+    # enter 
+    # exit
+    # create path 
+    # mark the left visited 
+    # enter new room
+    # repeat the whole process till the loop ends
 
 
 # following Toms Lectures i am going to do the following
@@ -86,6 +93,19 @@ class Queue:
                     q.enqueue(new_path)
         return None
 
+    def edge(path):
+        current_room = path[0]  
+        directions = [] 
+        # loop through each room
+        for room in path[1:]: 
+            # exit room
+            for exit in graph[current_room]: 
+                if room == graph[current_room][exit]: 
+                    # appending the key 
+                    directions.append(exit) 
+        return directions
+
+    
 # TRAVERSAL TEST
 visited_rooms = set()
 player.currentRoom = world.startingRoom
