@@ -22,7 +22,9 @@ world.printRooms()
 player = Player("Name", world.startingRoom)
 
 # Fill this out
-    traversalPath = ['n', 's']
+    traversalPath = []
+    graph = {0: {"n": "?", "e": "?", "s": "?", "w": "?"}}
+    inverse_directions = {'n': 's', 's': 'n', 'e': 'w', 'w': 'e'}
 
 class Queue:
     def __init__(self):
