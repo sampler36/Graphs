@@ -66,6 +66,23 @@ directions = ('n', 's', 'e', 'w')
 inverseDirections = {'n': 's', 's': 'n', 'w': 'e', 'e': 'w'}
 
 
+def traverseMap(player, direction=''):
+
+    # Check if all rooms have been explored and stop if they have.
+    if len(graph.keys()) == 500:
+        return
+    # While the map is not completely explored
+    # If the room doesn't exist
+
+    currentRoom = player.currentRoom.id
+
+    if player.currentRoom.id not in graph:
+            # Initialize in your room graph with '?' exits
+        graph[player.currentRoom.id] = {}
+        for exit in player.currentRoom.getExits():
+            graph[player.currentRoom.id][exit] = '?'
+
+
 
 
 # print(graph)
