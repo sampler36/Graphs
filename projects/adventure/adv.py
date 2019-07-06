@@ -44,6 +44,20 @@ player = Player("Name", world.startingRoom)
     # Explore the map again now that we are at a room with an unexplored exit
   
 
+class Queue():
+    def __init__(self):
+        self.queue = []
+    def enqueue(self, value):
+        self.queue.append(value)
+    def dequeue(self):
+        if self.size() > 0:
+            return self.queue.pop(0)
+        else:
+            return None
+    def size(self):
+        return len(self.queue)
+
+
 
 # print(graph)
 print(traversalPath)
