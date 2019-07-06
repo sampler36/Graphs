@@ -57,6 +57,15 @@ class Queue():
     def size(self):
         return len(self.queue)
 
+    
+traversalPath = []
+
+graph = {}
+directions = ('n', 's', 'e', 'w')
+
+inverseDirections = {'n': 's', 's': 'n', 'w': 'e', 'e': 'w'}
+
+
 
 
 # print(graph)
