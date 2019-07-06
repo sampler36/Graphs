@@ -82,7 +82,18 @@ def traverseMap(player, direction=''):
         for exit in player.currentRoom.getExits():
             graph[player.currentRoom.id][exit] = '?'
 
+    # If coming from another room
+    if direction is not '':
+        # find opposite direction of current travel
+        opposite = inverseDirections[direction]
+        # set prevRoom using Room method 'getRoomInDirection'
+        prevRoom = player.currentRoom.getRoomInDirection(opposite)
+        # Update the graph the entry for previous room
+        graph[currentRoom][opposite] = prevRoom.id
 
+    new_direction = '?'
+
+ 
 
 
 # print(graph)
