@@ -108,7 +108,52 @@ def traverseMap(player, direction=''):
             traverseMap(player, exit)
             break
 
+    # Else, find the nearest room using BFS with an unexplored exit and travel there
+    # Set a travel_path
+    travel_path = []
 
+    if new_direction is '?':
+        # Setup a new Queue with the currentRoom
+        q = Queue()
+        visited = set()
+        q.enqueue([currentRoom])
+
+        while q.size() > 0:
+            # While there is something in the Queue take out the last item and set current room to the last item in path
+            path = q.dequeue()
+            currentRoom = path[-1]
+
+            if currentRoom not in visited:
+                visited.add(currentRoom)
+
+                # If currentRoom has an unexplored exit
+                if '?' in graph[currentRoom].values():
+                    # Return path to that room and reset the queue
+                    travel_path = path
+                    q = Queue()
+                    break
+
+                for neighbor in graph[currentRoom].values():
+                    # for every direction in the current room add it to the path to search through and add it to the queue
+                    new_path = list(path)
+                    new_path.append(neighbor)
+                    q.enqueue(new_path)
+
+    for r in travel_path:
+        # for every room in the travel path
+        room = player.currentRoom.id
+        g_keys = graph[room].keys()
+        for d in g_keys:
+            # For every room we walked along add the values that match to that room to our traversal path
+            if graph[room][d] == r:
+                player.travel(d)
+                traversalPath.append(d)
+
+    # Explore the map again now that we are at a room with an unexplored exit
+    traverseMap(player)
+
+
+traverseMap(player)
 
 
 # print(graph)
